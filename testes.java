@@ -18,6 +18,8 @@ public class Testes {
             System.out.println("2 - Listar Livros");
             System.out.println("3 - Cadastrar Alunos");
             System.out.println("4 - Listar Alunos");
+            System.out.println("5 - Emprestar Livros");
+            System.out.println("6 - Livros Emprestados");
             System.out.println("0 - Sair");
             
             op = scanner.nextInt();
@@ -25,6 +27,7 @@ public class Testes {
 
             switch (op) {
                 case 1:
+
                     System.out.print("Digite o ID do livro: ");
                     int id = scanner.nextInt();
                     scanner.nextLine();
@@ -44,6 +47,7 @@ public class Testes {
                     break;
 
                 case 2:
+
                     if(livros.isEmpty()) {
                         System.out.println("A lista de livros esta vazia!");
                     } else {
@@ -68,11 +72,33 @@ public class Testes {
                     break;
                 
                 case 4:
+
                     if(alunos.isEmpty()){
                         System.out.println("A lista de alunos esta vazia!");
                     } else {
                         gerente.listarAlunos(alunos);
                     }
+                    break;
+
+                case 5:
+
+                    System.out.println("Insira o ID do Aluno: ");
+                    int idA3 = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.println("Insira o ID do Livro");
+                    int idL = scanner.nextInt();
+                    scanner.nextLine();
+
+                    gerente.emprestarLivro(livros, alunos, idA3, idL);
+
+                    break;
+
+                case 6:
+                    System.out.println("Insira o ID do aluno: ");
+                    int idA2 = scanner.nextInt();
+                    scanner.nextLine();
+                    gerente.listarLivrosEmprestados(alunos, idA2);
                     break;
 
                 case 0:

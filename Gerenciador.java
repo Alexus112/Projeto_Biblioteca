@@ -12,6 +12,22 @@ public class Gerenciador {
                 .forEach(System.out::println);
     }
 
+    public void listarLivrosEmprestados(Map<Integer, Alunos> alunos, int idAluno){
+        Alunos aluno = alunos.get(idAluno);
+
+        if(aluno == null){
+            System.out.println("ERRO: ID do aluno não existe.");
+            return;
+        }
+
+        if(aluno.getLivros().isEmpty()){
+            System.out.println("Este aluno nao pegou nenhum livro.");
+        } else{
+            aluno.getLivros().values().stream()
+                                      .forEach(System.out::println);
+        }
+    }
+
     public void emprestarLivro(Map<Integer, Livros> livros, Map<Integer, Alunos> alunos, int idAluno, int idLivro) {
 
         Alunos aluno = alunos.get(idAluno);

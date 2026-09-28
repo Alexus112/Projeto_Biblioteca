@@ -6,8 +6,7 @@ public class Alunos {
     private int id;
     private String nome;
     private String sala;
-
-    Map<Integer, Livros> livrosPegos = new HashMap<>();
+    private Map<Integer, Livros> livrosPegos = new HashMap<>();
 
     public Alunos(int id, String nome, String sala){
         this.id = id;
@@ -37,6 +36,10 @@ public class Alunos {
 
     public void setSala(String sala) {
         this.sala = sala;
+    }
+
+    public Map<Integer, Livros> getLivros(){
+        return livrosPegos;
     }
 
     public void guardarLivro(Livros livro){
