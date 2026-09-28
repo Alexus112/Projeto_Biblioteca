@@ -53,6 +53,16 @@ public class Livros {
         this.quantidade = quantidade;
     }
 
-    
+    public void diminuirQuantidade(){
+        if(this.quantidade == 0){
+            System.out.println("Este livro está esgotado.");
+        } else{
+            this.quantidade = this.quantidade - 1;
+        }
+    }
 
+    @Override
+    public String toString() {
+        return "ID: " + this.id + " | Nome: " + this.nome + " | Autor: " + this.autor + " | Quantidade: " + this.quantidade; 
+    }
 }

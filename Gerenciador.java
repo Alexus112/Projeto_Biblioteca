@@ -1,33 +1,39 @@
 import java.util.Map;
-import java.util.function.Function;
-
 
 public class Gerenciador {
 
-    Function<Map.Entry<Integer, Livros>, String> formatador = entry -> {
-
-            return "ID: " + entry.getKey() + 
-                   " | Nome: " + entry.getValue().getNome()+
-                   " | Autor: "+ entry.getValue().getAutor() +
-                   " | Quantidade: "+ entry.getValue().getQuantidade();
-
-        };
-    
-    Function<Map.Entry<Integer, Alunos>, String> formatador2 = entry -> {
-        return "ID: " + entry.getKey() + 
-               " | Nome: " + entry.getValue().getNome() +
-               " | Sala: " + entry.getValue().getSala();   
-    };
-
-    public void listarLista(Map<Integer, Livros> lista){
-        lista.entrySet().stream()
-                        .map(formatador)
-                        .forEach(System.out::println);
+    public void listarLivros(Map<Integer, Livros> lista) {
+        lista.values().stream()
+                .forEach(System.out::println);
     }
 
-    public void listarAlunos(Map<Integer, Alunos> alunos){
-        alunos.entrySet().stream()
-                        .map(formatador2)
-                        .forEach(System.out::println);
+    public void listarAlunos(Map<Integer, Alunos> alunos) {
+        alunos.values().stream()
+                .forEach(System.out::println);
+    }
+
+    public void emprestarLivro(Map<Integer, Livros> livros, Map<Integer, Alunos> alunos, int idAluno, int idLivro) {
+
+        Alunos aluno = alunos.get(idAluno);
+        Livros livro = livros.get(idLivro); 
+
+        if (aluno == null) {
+            System.out.println("ERRO: Aluno não encontrado com este ID.");
+            return; 
+        }
+
+        if (livro == null) {
+            System.out.println("ERRO: Livro não encontrado com este ID.");
+            return;
+        }
+
+        if (livro.getQuantidade() <= 0) {
+            System.out.println("O livro '" + livro.getNome() + "' está fora de estoque no momento.");
+        } else {
+            aluno.guardarLivro(livro);
+            livro.diminuirQuantidade();
+            System.out.println(
+                    "Livro '" + livro.getNome() + "' emprestado com sucesso para o aluno " + aluno.getNome() + "!");
+        }
     }
 }

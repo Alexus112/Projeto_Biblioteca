@@ -47,7 +47,7 @@ public class Testes {
                     if(livros.isEmpty()) {
                         System.out.println("A lista de livros esta vazia!");
                     } else {
-                        gerente.listarLista(livros);
+                        gerente.listarLivros(livros);
                     }
                     break;
                 
@@ -64,7 +64,7 @@ public class Testes {
                     String sala = scanner.nextLine();
                     
                     alunos.put(idA, new Alunos(idA, nomeA, sala));
-                    System.out.println("Livro cadastrado com sucesso!");
+                    System.out.println("Aluno cadastrado com sucesso!");
                     break;
                 
                 case 4:

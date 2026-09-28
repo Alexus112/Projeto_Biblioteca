@@ -1,8 +1,13 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Alunos {
 
     private int id;
     private String nome;
     private String sala;
+
+    Map<Integer, Livros> livrosPegos = new HashMap<>();
 
     public Alunos(int id, String nome, String sala){
         this.id = id;
@@ -34,8 +39,14 @@ public class Alunos {
         this.sala = sala;
     }
 
-    
-    
-    
+    public void guardarLivro(Livros livro){
+        int livroid = livro.getId();
+        livrosPegos.put(livroid, livro);
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + this.id + " | Nome: " + this.nome + " | Sala: " + this.sala; 
+    }
 
 }
