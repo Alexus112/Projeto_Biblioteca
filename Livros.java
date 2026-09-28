@@ -1,39 +1,58 @@
 public class Livros {
 
+    private int id;
     private String nome;
     private String autor;
     private int quantidade;
    
 
-    public Livros(String nome, String autor, int quantidade){
+    public Livros(int id, String nome, String autor, int quantidade){
+        this.id = id;
         this.nome = nome;
         this.autor = autor;
-        this.quantidade = quantidade;
-       
+        this.quantidade = quantidade; 
     }
 
-    public void setNome(String nome){
-        this.nome = nome;
+
+    public int getId() {
+        return id;
     }
 
-    public void setAutor(String autor){
-        this.autor = autor;
+
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setQuantidade(int quantidade){
-        this.quantidade = quantidade;
-    }
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public String getAutor(){
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+
+    public String getAutor() {
         return autor;
     }
 
-    public int getQuantidade(){
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+
+    public int getQuantidade() {
         return quantidade;
     }
+
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    
 
 }
