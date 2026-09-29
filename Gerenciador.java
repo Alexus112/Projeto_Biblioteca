@@ -23,6 +23,7 @@ public class Gerenciador {
         if(aluno.getLivros().isEmpty()){
             System.out.println("Este aluno nao pegou nenhum livro.");
         } else{
+            System.out.println("Aluno: " + aluno.getNome());
             aluno.getLivros().values().stream()
                                       .forEach(System.out::println);
         }
