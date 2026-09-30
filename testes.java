@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -22,9 +23,9 @@ public class Testes {
             System.out.println("6 - Livros Emprestados");
             System.out.println("0 - Sair");
             
+            try{
             op = scanner.nextInt();
             scanner.nextLine(); 
-
             switch (op) {
                 case 1:
 
@@ -108,6 +109,10 @@ public class Testes {
                 default:
                     System.out.println("Opcao invalida!");
                     break;
+                }
+            }catch(InputMismatchException erro){
+                System.out.println("ERRO: Digite um numero inteiro valido.");
+                scanner.next();
             }
         }
         scanner.close();
